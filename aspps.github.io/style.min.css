@@ -132,10 +132,6 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', Georgia, serif; line-heigh
   .nav__links a.btn { margin-top: 1rem; }
   .topbar { display: none; }
   .hero__stats { flex-direction: column; align-items: stretch; text-align: left; }
-  .hero__card--floating { width: 95%; max-width: 340px; padding: 0.8rem; bottom: -1.2rem; gap: 0.5rem; }
-  .hero__card--floating:hover { transform: translateX(-50%) translateY(-2px); }
-  .hero__badge { width: 40px; height: 40px; min-width: 40px; }
-  .hero__card--floating div strong { font-size: 0.95rem; }
-  .hero__card--floating div p { font-size: 0.75rem; line-height: 1.2; }
+  .hero__card--floating { display: none; }
   .site-footer { flex-direction: column; text-align: center; gap: 2rem; }
 }
