@@ -9,7 +9,7 @@
 }
 .slideshow {
   position: relative;
-  max-width: 800px;      /* Restricts the box from growing too wide */
+  max-width: 900px;      /* Restricts the box from growing too wide */
   margin: 0 auto;        /* Centers the slideshow box horizontally */
   border-radius: 2rem;
   overflow: hidden;
