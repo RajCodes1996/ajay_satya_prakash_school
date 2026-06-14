@@ -7,14 +7,29 @@
   background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
   padding: 1rem;
 }
-.slideshow__viewport {
+.slideshow {
   position: relative;
-  min-height: 540px;
+  max-width: 800px;      /* Restricts the box from growing too wide */
+  margin: 0 auto;        /* Centers the slideshow box horizontally */
+  border-radius: 2rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+  padding: 1rem;
+}
+
+.slideshow__viewport {
+  position: relative;    /* Fixed the broken syntax and layout positioning */
+  width: 100%;           /* Fills the 800px bounded box perfectly */
+  height: auto;
+  aspect-ratio: 16 / 9;  /* Forces a standard widescreen layout */
   border-radius: 1.5rem;
   overflow: hidden;
   background: radial-gradient(circle at top, rgba(255,255,255,.16), rgba(255,255,255,.04));
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
 }
+
 .slide {
   position: absolute;
   inset: 0;
@@ -22,21 +37,294 @@
   transform: scale(1.03);
   transition: opacity .65s ease, transform .65s ease;
   pointer-events: none;
-  padding: 1rem;
+  padding: 0;            /* Removed extra padding to utilize full viewport frame */
 }
+
 .slide.is-active {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
   z-index: 1;
 }
+
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain;   /* CRITICAL: Prevents your banner images from stretching/distorting */
   object-position: center center;
-  border-radius: .9rem;
-  background: #fff;
+  background: #0b162d;   /* Matches your site theme color behind letterboxed images */
   box-shadow: 0 16px 40px rgba(0,0,0,.18);
 }
-.slideshow__btn{position:absolute;top:50%;transform:translateY(-50%);width:3rem;height:3rem;border:0;border-radius:999px;background:rgba(8,16,29,.72);color:#fff;font-size:1.6rem;cursor:pointer;z-index:2;display:grid;place-items:center}.slideshow__btn--prev{left:1rem}.slideshow__btn--next{right:1rem}.slideshow__dots{position:absolute;left:50%;bottom:1rem;transform:translateX(-50%);display:flex;gap:.5rem;z-index:2}.slideshow__dots button{width:.7rem;height:.7rem;border:0;border-radius:999px;background:rgba(255,255,255,.45);cursor:pointer;padding:0}.slideshow__dots button.is-active{background:var(--accent-2);transform:scale(1.2)}.section--cta{padding-bottom:5.5rem}.cta-panel{border-radius:2rem;padding:1.5rem;display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem}.contact-grid{display:grid;gap:1rem}.contact-grid div{padding:1rem 1.05rem;border-radius:1rem;background:rgba(255,255,255,.04);border:1px solid var(--line)}.site-footer{max-width:1180px;margin:0 auto;padding:1.5rem 1.25rem 2.5rem;color:var(--muted);display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--line)}.site-footer strong{color:var(--text)}@media (max-width:980px){.hero,.cta-panel{grid-template-columns:1fr}.hero{padding-top:2rem}.hero__visual{min-height:420px}.slideshow__viewport{min-height:420px}.feature-grid,.cards-grid,.life-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.site-footer{flex-direction:column}}@media (max-width:720px){.nav{flex-wrap:wrap}.nav__toggle{display:inline-flex}.nav__links{display:none;width:100%;flex-direction:column;align-items:flex-start;padding:1rem 0 0}.nav__links--open{display:flex}.nav-item{width:100%;flex-direction:column;align-items:flex-start}.dropdown{position:static;display:none;width:100%;margin-top:.5rem}.nav-item--open .dropdown{display:grid}.hero__stats,.feature-grid,.cards-grid,.life-grid{grid-template-columns:1fr}.hero{padding-top:1rem}.hero__visual{min-height:360px}.hero__card--floating{left:1rem;right:1rem;max-width:none}.slideshow__viewport{min-height:300px}.slideshow__btn{width:2.5rem;height:2.5rem;font-size:1.4rem}.topbar{display:none}.site-footer{font-size:.95rem}}
+
+.slideshow__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(8, 16, 29, 0.72);
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+
+.slideshow__btn--prev {
+  left: 1rem;
+}
+
+.slideshow__btn--next {
+  right: 1rem;
+}
+
+.slideshow__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.slideshow__dots button {
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  padding: 0;
+}
+
+.slideshow__dots button.is-active {
+  background: var(--accent-2);
+  transform: scale(1.2);
+}
+
+.section--cta {
+  padding-bottom: 5.5rem;
+}
+
+.cta-panel {
+  border-radius: 2rem;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-grid div {
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+  background: rgba(233, 34, 34, 0.04);
+  border: 1px solid var(--line);
+}
+
+.site-footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 2px solid var(--line);
+}
+
+.site-footer strong {
+  color: var(--text);
+}
+
+/* --- Responsive Media Queries --- */
+
+@media (max-width: 980px) {
+  .hero,
+  .cta-panel {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero {
+    padding-top: 2rem;
+  }
+  
+  .hero__visual {
+    min-height: 420px;
+  }
+  
+  /* .slideshow__viewport min-height removed */
+  
+  .feature-grid,
+  .cards-grid,
+  .life-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .site-footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav {
+    flex-wrap: wrap;
+  }
+  
+  .nav__toggle {
+    display: inline-flex;
+  }
+  
+  .nav__links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0 0;
+  }
+  
+  .nav__links--open {
+    display: flex;
+  }
+  
+  .nav-item {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .dropdown {
+    position: static;
+    display: none;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .nav-item--open .dropdown {
+    display: grid;
+  }
+  
+  .hero__stats,
+  .feature-grid,
+  .cards-grid,
+  .life-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero {
+    padding-top: 1rem;
+  }
+  
+  .hero__visual {
+    min-height: 360px;
+  }
+  
+  .hero__card--floating {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+  }
+  
+  /* .slideshow__viewport min-height removed */
+  
+  .slideshow__btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.4rem;
+  }
+  
+  .topbar {
+    display: none;
+  }
+  
+  .site-footer {
+    font-size: 0.95rem;
+  }
+}
+video-stage {
+  width: 60%;
+  max-width: 1140px;      /* Keeps the elegant boundary aligned with your layout grid */
+  margin: 3rem auto 0 auto;
+  perspective: 1200px;    /* Preserves the premium 3D depth backdrop */
+}
+
+.video-3d-card {
+  position: relative;
+  width: 60%;
+  border-radius: 2rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #071530;
+  
+  /* Retains the clean 3D tilting baseline perspective plane */
+  transform: rotateX(6deg) translateY(5px);
+  transform-style: preserve-3d;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    0 30px 60px rgba(4, 35, 107, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
+}
+
+.documentary-video {
+  display: block;
+  width: 100%;
+  height: auto;           /* CRITICAL: Allows height to adapt automatically to the video file */
+  max-height: 75vh;       /* Prevents vertical videos from overflowing down past your screen */
+  object-fit: contain;    /* Prevents any pixel distortion or squishing */
+  background: #000;       /* Adds clean presentation borders if needed */
+  z-index: 1;
+}
+
+/* --- 3D CINEMATIC VIDEO SECTION STYLES --- */
+
+/* Subtle glassmorphism ambient light reflection overlay layer */
+.video-3d-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0) 50%, 
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  transition: opacity 0.5s ease;
+}
+
+/* --- Interactive Hover Effects --- */
+
+/* On hovering the video container, it glides forward up the 3D plane */
+.video-stage:hover .video-3d-card {
+  transform: rotateX(0deg) translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 40px 80px rgba(88, 184, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.video-stage:hover .video-3d-overlay {
+  opacity: 0.4;
+}
+
+/* Mobile Responsiveness adjustment */
+@media (max-width: 720px) {
+  .video-3d-card {
+    /* Flatten 3D angles slightly on smaller display viewport ratios */
+    transform: rotateX(3deg) translateY(0);
+    border-radius: 1.25rem;
+  }
+  .video-stage:hover .video-3d-card {
+    transform: rotateX(0deg) translateY(-3px) scale(1.01);
+  }
+}
