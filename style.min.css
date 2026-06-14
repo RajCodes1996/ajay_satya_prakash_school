@@ -365,4 +365,37 @@ video-stage {
   .video-stage:hover .video-3d-card {
     transform: rotateX(0deg) translateY(-3px) scale(1.01);
   }
+
+  /* Insane Slideshow Mobile Fixes */
+  .slideshow {
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+    transform: perspective(1000px) rotateX(0deg); /* Flatten on mobile for clarity */
+    margin: 1rem 0;
+  }
+  .slideshow:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-2px);
+  }
+  .slideshow__viewport {
+    aspect-ratio: 1 / 1; /* Taller ratio for posters so they aren't tiny */
+    border-radius: 1rem;
+  }
+  .slideshow__btn {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.2rem;
+  }
+  .slideshow__btn--prev { left: 0.5rem; }
+  .slideshow__btn--next { right: 0.5rem; }
+  .slideshow__dots {
+    bottom: 0.8rem;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+  .slideshow__dots button {
+    width: 1.5rem;
+  }
+  .slideshow__dots button.is-active {
+    width: 2.5rem;
+  }
 }
