@@ -30,11 +30,7 @@
           <button type="button">Campus</button>
           <button type="button">Gallery</button>
           <button type="button">Principal</button>
-        </div>
-
-        <div class="ai-input">
-          <input type="text" id="aiInput" placeholder="Ask anything..." autocomplete="off" />
-          <button id="sendMessage" type="button" aria-label="Send message">➤</button>
+          <button type="button">School Info</button>
         </div>
       </div>
     </div>
@@ -44,18 +40,15 @@
   const closeBtn = document.getElementById("aiClose");
   const windowBox = document.getElementById("aiWindow");
   const chatBody = document.getElementById("aiBody");
-  const chatInput = document.getElementById("aiInput");
-  const sendBtn = document.getElementById("sendMessage");
   const suggestions = document.getElementById("aiSuggestions");
 
-  if (!openBtn || !closeBtn || !windowBox || !chatBody || !chatInput || !sendBtn) {
+  if (!openBtn || !closeBtn || !windowBox || !chatBody) {
     return;
   }
 
   const openChat = () => {
     windowBox.classList.add("show");
     windowBox.setAttribute("aria-hidden", "false");
-    chatInput.focus();
   };
 
   const closeChat = () => {
@@ -68,6 +61,7 @@
 
   // AI Knowledge Base
   const kb = [
+    { keywords: ["school info"], answer: "<strong>Ajay Satya Prakash Public School</strong> is a co-educational, English-medium senior secondary school located in Panagar, Jabalpur, Madhya Pradesh. Established in 2012 and affiliated with the CBSE (Affiliation No. 1030757), it offers classes from Nursery to Grade XII.<br><br><strong>School Overview & Academics</strong><br>• Curriculum: CBSE<br>• Classes: Nursery through Grade 12<br>• Medium: English Medium<br>• Established: 2012<br><br><strong>Campus & Facilities</strong><br>• Modern infrastructure with smart learning rooms<br>• Sports grounds and co-curricular facilities<br>• Transport options available<br><br><strong>Location & Contact</strong><br>• Address: Mouza Kewlari, Maharajpur, Tehsil Panagar, Jabalpur, MP, 483220<br>• Contact: +91 9691142224, +91 6262225081, +91 6262225082<br>• Website: aspsss.in<br>• Hours: Mon-Sat (8:00 AM – 2:00 PM)" },
     { keywords: ["admission", "admissions", "apply", "enroll"], answer: "Admissions are currently open for Classes 1st to 12th! You can find more details in the Academics section or contact us at +0761-2350211." },
     { keywords: ["fee", "fees", "cost"], answer: "For detailed fee structures, please contact our administration office at aspps011@gmail.com or call +0761-2350211." },
     { keywords: ["campus", "infrastructure", "facilities", "lab", "library"], answer: "Our modern campus features well-equipped science and computer laboratories, a comprehensive library, and sports facilities for holistic development." },
@@ -96,13 +90,11 @@
     chatBody.scrollTop = chatBody.scrollHeight;
   };
 
-  const handleSend = () => {
-    const text = chatInput.value.trim();
+  const handleSend = (text) => {
     if (!text) return;
     
     // User message
     appendMessage(text, 'user');
-    chatInput.value = "";
     
     // Bot typing simulation
     const typingId = "typing-" + Date.now();
@@ -123,19 +115,11 @@
     }, 600 + Math.random() * 500); // Simulated delay
   };
 
-  sendBtn.addEventListener("click", handleSend);
-  chatInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      handleSend();
-    }
-  });
-
   if (suggestions) {
     const suggestionBtns = suggestions.querySelectorAll("button");
     suggestionBtns.forEach(btn => {
       btn.addEventListener("click", () => {
-        chatInput.value = btn.innerText;
-        handleSend();
+        handleSend(btn.innerText);
       });
     });
   }
