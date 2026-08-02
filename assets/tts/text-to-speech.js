@@ -40,7 +40,7 @@
     ttsButton = document.createElement("button");
     ttsButton.id = "tts-button";
     ttsButton.setAttribute("aria-label", "Read Page Aloud");
-    ttsButton.innerHTML = "🔊 Read Page";
+    ttsButton.innerHTML = "🔊 School Info";
     
     // Styling the button to match the modern look
     Object.assign(ttsButton.style, {
