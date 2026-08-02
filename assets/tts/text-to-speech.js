@@ -85,7 +85,7 @@
       ttsButton.innerHTML = "🎶 Speaking...";
       ttsButton.classList.add("tts-speaking");
     } else {
-      ttsButton.innerHTML = "🔊 Read Page";
+      ttsButton.innerHTML = "🔊 School Info";
       ttsButton.classList.remove("tts-speaking");
       ttsButton.style.transform = "translateY(0)";
     }
