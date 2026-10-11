@@ -32,6 +32,11 @@
           <button type="button">Principal</button>
           <button type="button">School Info</button>
         </div>
+
+        <div class="ai-input">
+          <input type="text" id="aiInput" placeholder="Ask anything..." aria-label="Type your question">
+          <button id="sendMessage" type="button" aria-label="Send message">➤</button>
+        </div>
       </div>
     </div>
   `;
@@ -41,6 +46,8 @@
   const windowBox = document.getElementById("aiWindow");
   const chatBody = document.getElementById("aiBody");
   const suggestions = document.getElementById("aiSuggestions");
+  const aiInput = document.getElementById("aiInput");
+  const sendMessageBtn = document.getElementById("sendMessage");
 
   if (!openBtn || !closeBtn || !windowBox || !chatBody) {
     return;
@@ -121,6 +128,24 @@
       btn.addEventListener("click", () => {
         handleSend(btn.innerText);
       });
+    });
+  }
+
+  if (sendMessageBtn && aiInput) {
+    const sendInputMessage = () => {
+      const text = aiInput.value.trim();
+      if (text) {
+        handleSend(text);
+        aiInput.value = '';
+      }
+    };
+
+    sendMessageBtn.addEventListener("click", sendInputMessage);
+
+    aiInput.addEventListener("keypress", (e) => {
+      if (e.key === 'Enter') {
+        sendInputMessage();
+      }
     });
   }
 })();
