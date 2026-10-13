@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.ajaysatyaprakashschool.in/</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ajaysatyaprakashschool.in/campus-info.html</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ajaysatyaprakashschool.in/documentary.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://www.ajaysatyaprakashschool.in/images/as.jpg</video:thumbnail_loc>
+      <video:title>Ajay Satya Prakash Public School Documentary</video:title>
+      <video:description>Official documentary of Ajay Satya Prakash Public School, a CBSE school in Panagar, Jabalpur, featuring campus facilities, academics and activities.</video:description>
+      <video:content_loc>https://www.ajaysatyaprakashschool.in/videos/aspps_clip.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.ajaysatyaprakashschool.in/director-message.html</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ajaysatyaprakashschool.in/principal-message.html</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ajaysatyaprakashschool.in/chairman-message.html</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,479 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ajay Satya Prakash Public School - school website with academics, facilities, gallery, and contact information.">
+  <title>Ajay Satya Prakash Public School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.min.css">
+  <style>
+    /* Google Translate CSS Overrides & Custom Switcher */
+    body { top: 0 !important; }
+    .skiptranslate iframe { display: none !important; }
+    #google_translate_element { display: none !important; }
+    
+    .custom-lang-selector {
+      margin-left: auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background 0.3s ease;
+    }
+    .custom-lang-selector:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .custom-lang-selector svg {
+      width: 16px;
+      height: 16px;
+      fill: #fff;
+    }
+    .custom-lang-selector select {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      padding-right: 12px;
+    }
+    .custom-lang-selector select option {
+      background: #1e3a8a;
+      color: #fff;
+    }
+    .custom-lang-selector::after {
+      content: "▼";
+      font-size: 9px;
+      color: #fff;
+      position: absolute;
+      right: 10px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <div class="topbar__item">Panagar, Keolari, Jabalpur, M.P. 483220</div>
+      <div class="topbar__item">aspps011@gmail.com</div>
+      <div class="topbar__item">+0761-2350211</div>
+      
+      <!-- Hidden Google Translate Element -->
+      <div id="google_translate_element"></div>
+      
+      <!-- Custom Attractive Language Switcher -->
+      <div class="custom-lang-selector" aria-label="Select Language">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+        <select id="customLanguageSelect" onchange="translatePage(this.value)">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="mr">मराठी (Marathi)</option>
+          <option value="gu">ગુજરાતી (Gujarati)</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="te">తెలుగు (Telugu)</option>
+        </select>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="brand" href="#home" aria-label="Ajay Satya Prakash Public School home">
+        <img src="images/logoo.png" alt="Ajay Satya Prakash Public School logo" class="brand__logo">
+        <span class="brand__text">
+          <strong>ASPPS</strong>
+          <small>Learning with purpose</small>
+        </span>
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" id="menuToggle">Menu</button>
+
+      <div class="nav__links" id="nav-links">
+        <div class="nav-item">
+          <button class="nav-link" type="button">About School</button>
+          <div class="dropdown">
+            <a href="campus-info.html">About School</a>
+            <a href="#aims">Aims and Objectives</a>
+            <a href="#school-info">School Information</a>
+            <a href="#documentary">School Documentary</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Administration</button>
+          <div class="dropdown">
+            <a href="director-message.html">Director's Message</a>
+            <a href="principal-message.html">Principal's Message</a>
+            <a href="chairman-message.html">Chairman's Message</a>
+            <a href="#staff-details">Staff Details</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Academics</button>
+          <div class="dropdown">
+            <a href="#admission">Admission</a>
+            <a href="#terms">Terms and Conditions</a>
+            <a href="#cbse">CBSE Mandatory Disclosure</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Students</button>
+          <div class="dropdown">
+            <a href="#news">News and Updates</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button">Facilities</button>
+          <div class="dropdown">
+            <a href="#infrastructure">Infrastructure</a>
+            <a href="#laboratories">Laboratories</a>
+            <a href="#library">Library</a>
+            <a href="#features">Features</a>
+          </div>
+        </div>
+
+        <a class="nav-link nav-link--simple" href="#gallery">Gallery</a>
+
+        <div class="nav-item">
+          <button class="nav-link nav-link--pill" type="button">Quick Links</button>
+          <div class="dropdown dropdown--right">
+            <a href="#contact">Contact Us</a>
+            <a href="#tc">Uploaded TC</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero__content">
+        <div class="eyebrow">A brighter place to learn, lead, and grow</div>
+        <h1 class="hero__title">
+          <span>Ajay Satya</span>
+          <span>Prakash</span>
+          <span>School</span>
+        </h1>
+        <p>
+          A modern school experience built on strong academics, values, creativity, and confidence.
+          We help students develop the skills and character they need for the future.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#contact">Enquire Now</a>
+          <a class="btn btn--ghost" href="campus-info.html">View Campus</a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <strong>1st - 12th</strong>
+            <span>Complete school journey</span>
+          </div>
+          <div class="stat">
+            <strong>Values</strong>
+            <span>Discipline and confidence</span>
+          </div>
+          <div class="stat">
+            <strong>Activities</strong>
+            <span>Sports, arts, and learning</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__card hero__card--main">
+          <img src="images/as.avif" alt="School campus view" class="hero__image">
+        </div>
+        <div class="hero__card hero__card--floating">
+          <img src="images/aspps.png" alt="School banner preview" class="hero__badge">
+          <div>
+            <strong>Admissions Open</strong>
+            <p>Build a strong foundation for a successful future.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about-school">
+      <div class="section__heading">
+        <span class="section__eyebrow">About School</span>
+        <h2>Modern learning with a warm, student-first environment</h2>
+        <p>We created this redesign to make the school feel more welcoming, premium, and easy to explore.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><h3>Academic strength</h3><p>Structured learning for foundational, middle, and senior school students.</p></article>
+        <article class="feature-card"><h3>Holistic growth</h3><p>Sports, music, arts, and activities that shape confidence and character.</p></article>
+        <article class="feature-card"><h3>Future-ready</h3><p>Encouraging curiosity, digital awareness, and practical learning habits.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="documentary">
+      <div class="section__heading">
+        <span class="section__eyebrow">About School</span>
+        <h2>School Documentary</h2>
+        <!-- <p>A place for your future documentary video, embedded media, or school story overview.</p> -->
+      </div>
+
+<!-- #Video-Here -->
+    <center><div class="video-stage">
+    <div class="video-perspective-wrapper">
+      <div class="video-3d-card">
+        <video 
+          class="documentary-video" 
+          controls 
+          preload="metadata" 
+          poster="images/as.avif">
+          <source src="videos/aspps_clip.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-3d-overlay"></div>
+      </div>
+    </div>
+  </div></center>
+      <!-- <div class="cta-panel">
+        <div>
+          <p>This section is ready for a video embed or a featured school documentary block.</p>
+        </div>
+      </div> -->
+    </section>
+
+    <section class="section gallery-showcase" id="gallery">
+      <div class="section__heading">
+        <span class="section__eyebrow">Gallery</span>
+        <h2>Campus memories and moments</h2>
+        <p>A slideshow of campus memories placed right after the About School section.</p>
+      </div>
+
+      <div class="slideshow" aria-label="Campus memories slideshow">
+        <div class="slideshow__viewport">
+          <article class="slide is-active"><img src="images/one.png" alt="School memory 1"></article>
+          <article class="slide"><img src="images/aspps_one.jpg" alt="School memory 2"></article>
+          <article class="slide"><img src="images/aspps_two.jpg" alt="School memory 3"></article>
+          <article class="slide"><img src="images/four.jpg" alt="School memory 4"></article>
+          <article class="slide"><img src="images/aspps_three.jpg" alt="School memory 5"></article>
+          <article class="slide"><img src="images/aspps_four.jpg" alt="School memory 6"></article>
+        </div>
+        <button class="slideshow__btn slideshow__btn--prev" type="button" aria-label="Previous slide" id="slidePrev">&#10094;</button>
+        <button class="slideshow__btn slideshow__btn--next" type="button" aria-label="Next slide" id="slideNext">&#10095;</button>
+        <div class="slideshow__dots" id="slideDots" aria-label="Slideshow controls"></div>
+      </div>
+    </section>
+
+    <section class="section section--split" id="aims">
+      <div class="section__heading section__heading--left">
+        <span class="section__eyebrow">Aims and Objectives</span>
+        <h2>Programs built for each stage of the student journey</h2>
+        <p>Clear learning pathways, supportive teachers, and a balanced approach to classwork and skills.</p>
+      </div>
+      <div class="cards-grid">
+        <article class="program-card"><div class="program-card__index">01</div><h3>Primary Classes</h3><p>Classes 1st to 8th with strong foundations in language, math, science, and social studies.</p></article>
+        <article class="program-card"><div class="program-card__index">02</div><h3>Senior Classes</h3><p>Classes 9th to 12th focused on board preparation, discipline, and future academic goals.</p></article>
+        <article class="program-card"><div class="program-card__index">03</div><h3>Skills & Activities</h3><p>Computer learning, sports, arts, music, dance, and extracurricular experiences.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="news">
+      <div class="cta-panel">
+        <div>
+          <span class="section__eyebrow">Students</span>
+          <h2>News and updates</h2>
+          <p>Use this section for announcements, circulars, exam schedules, achievements, and student activities.</p>
+        </div>
+        <div class="contact-grid">
+          <div><strong>Updates</strong><span>Notice board ready</span></div>
+          <div><strong>Communication</strong><span>Latest school news</span></div>
+          <div><strong>Student focus</strong><span>Events and achievements</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="section" id="infrastructure">
+      <div class="section__heading">
+        <span class="section__eyebrow">Facilities</span>
+        <h2>Infrastructure</h2>
+        <p>Describe the school building, classrooms, grounds, and overall campus infrastructure here.</p>
+      </div>
+    </section>
+
+    <section class="section" id="laboratories">
+      <div class="section__heading">
+        <span class="section__eyebrow">Facilities</span>
+        <h2>Laboratories</h2>
+        <p>Use this section for science labs, computer labs, and any practical learning spaces.</p>
+      </div>
+    </section> -->
+
+    <!-- <section class="section" id="library">
+      <div class="section__heading">
+        <span class="section__eyebrow">Facilities</span>
+        <h2>Library</h2>
+        <p>Add reading resources, book collections, and study environment details here.</p>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section__heading">
+        <span class="section__eyebrow">Facilities</span>
+        <h2>Features</h2>
+        <p>Highlight the unique features of the school, such as transport, activities, or digital learning support.</p>
+      </div>
+    </section> -->
+
+    <!-- <section class="section" id="staff-details">
+      <div class="section__heading">
+        <span class="section__eyebrow">Administration</span>
+        <h2>Staff Details</h2>
+        <p>Add the staff list here when you are ready. The section is now linked from the navbar so it feels complete.</p>
+      </div>
+    </section> -->
+
+    <!-- <section class="section" id="tc">
+      <div class="section__heading">
+        <span class="section__eyebrow">Quick Links</span>
+        <h2>Uploaded TC</h2>
+        <p>This can host uploaded transfer certificates or related documents in the future.</p>
+      </div>
+    </section> -->
+
+    <section class="section section--cta" id="contact">
+      <div class="cta-panel">
+        <div>
+          <span class="section__eyebrow">Admissions & Contact</span>
+          <h2>Let's keep the school website current and easy to explore</h2>
+          <p>
+            If you want, I can also split these dropdown items into dedicated pages next.
+            For now, the navigation is organized exactly around the sections you requested.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div><strong>Phone</strong><span>+0761-2350211</span></div>
+          <div><strong>Email</strong><span>aspps011@gmail.com</span></div>
+          <div><strong>Address</strong><span>Panagar, Keolari, Jabalpur, M.P. 483220</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-map" style="width: 100%; border-radius: 16px; overflow: hidden; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3072.2384226062413!2d79.9791909844836!3d23.2696051597517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981a5ce4835913f%3A0x2c936987c5fdc0fb!2sAjay%20Satya%20Prakash%20Senior%20Secondary%20School%20%7C%20Best%20School%20%7C%20Best%20School%20For%20Kids%20%7C%20Best%20School%20In%20Panagar!5e0!3m2!1sen!2sin!4v1785653124131!5m2!1sen!2sin" width="100%" height="200" style="border:0; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div>
+      <strong>Ajay Satya Prakash Public School</strong>
+      <p>Panagar, Keolari, Jabalpur, M.P. 483220</p>
+    </div>
+    <p>&copy; 2026 Ajay Satya Prakash Public School Jabalpur, Madhya Pradesh. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggleButton = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggleButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('nav__links--open');
+      toggleButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.querySelectorAll('button.nav-link').forEach((button) => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const open = item.classList.toggle('nav-item--open');
+        navLinks.querySelectorAll('.nav-item').forEach((other) => {
+          if (other !== item) other.classList.remove('nav-item--open');
+        });
+        item.classList.toggle('nav-item--open', open);
+      });
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('nav__links--open');
+        toggleButton.setAttribute('aria-expanded', 'false');
+        navLinks.querySelectorAll('.nav-item').forEach((item) => item.classList.remove('nav-item--open'));
+      });
+    });
+
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dotsWrap = document.getElementById('slideDots');
+    const prevBtn = document.getElementById('slidePrev');
+    const nextBtn = document.getElementById('slideNext');
+    let activeSlide = 0;
+    let slideshowTimer = null;
+
+    if (slides.length && dotsWrap && prevBtn && nextBtn) {
+      const setActive = (index) => {
+        activeSlide = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('is-active', i === activeSlide));
+        dotsWrap.querySelectorAll('button').forEach((dot, i) => dot.classList.toggle('is-active', i === activeSlide));
+      };
+
+      const restart = () => {
+        if (slideshowTimer) clearInterval(slideshowTimer);
+        slideshowTimer = setInterval(() => setActive(activeSlide + 1), 4500);
+      };
+
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        dot.addEventListener('click', () => {
+          setActive(index);
+          restart();
+        });
+        dotsWrap.appendChild(dot);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        setActive(activeSlide - 1);
+        restart();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        setActive(activeSlide + 1);
+        restart();
+      });
+
+      setActive(0);
+      restart();
+    }
+  </script>
+  <link rel="stylesheet" href="assets/chatbot/chatbot.css">
+  <div id="aspps-ai"></div>
+  <script src="assets/chatbot/chatbot.js"></script>
+
+  <!-- AI Text-to-Speech Accessibility -->
+  <script src="assets/tts/text-to-speech.js"></script>
+
+  <!-- Google Translate AI (Multilingual Support) -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,mr,gu,ta,te',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    function translatePage(lang) {
+      var select = document.querySelector('.goog-te-combo');
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+      }
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
