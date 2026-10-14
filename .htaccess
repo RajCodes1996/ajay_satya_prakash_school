@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# 1. Remove index.html from the URL
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [R=301,L]
+
+# 2. Map clean URLs to actual .html files internally
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^/]+)$ $1.html [L]
+
+# 3. Externally redirect browser if someone explicitly types .html
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^/]+)\.html\ HTTP/
+RewriteRule ^([^/]+)\.html$ https://%{HTTP_HOST}/$1 [R=301,L]

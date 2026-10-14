@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-IN">
 <head>
   <meta charset="UTF-8">
@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Merriweather:wght@700;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="style.min.css">
   <style>
     /* Google Translate CSS Overrides & Custom Switcher */
     body { top: 0 !important; }
@@ -81,11 +81,37 @@
       right: 10px;
       pointer-events: none;
     }
+
+    /* Responsive Video Section Custom Styles */
+    .video-container-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .video-responsive {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* Maintains a clean 16:9 widescreen ratio */
+      height: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      background: #000;
+    }
+
+    .video-responsive video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
   </style>
 
   <!-- Structured data: tells Google who the school is -->
-  <!-- TODO: after you have the exact profile URLs, add this line after "geo" below:
-       "sameAs": ["https://www.facebook.com/YOUR_PAGE", "https://www.instagram.com/YOUR_ACCOUNT", "https://www.justdial.com/YOUR_LISTING", "https://www.vidyapun.com/YOUR_LISTING"] -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -288,34 +314,26 @@
       <div class="section__heading">
         <span class="section__eyebrow">About School</span>
         <h2>School Documentary: Ajay Satya Prakash Public School</h2>
-        <!-- <p>A place for your future documentary video, embedded media, or school story overview.</p> -->
       </div>
 
-<!-- #Video-Here -->
-    <center><div class="video-stage">
-    <div class="video-perspective-wrapper">
-      <div class="video-3d-card">
-        <video 
-          class="documentary-video" 
-          aria-label="Ajay Satya Prakash Public School documentary video" 
-          controls 
-          preload="metadata" 
-          poster="images/as.avif">
-          <source src="videos/aspps_clip.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <div class="video-3d-overlay"></div>
+      <!-- Re-designed Responsive Video Container -->
+      <div class="video-container-wrapper">
+        <div class="video-responsive">
+          <video 
+            class="documentary-video" 
+            aria-label="Ajay Satya Prakash Public School documentary video" 
+            controls 
+            preload="metadata" 
+            poster="images/as.avif">
+            <source src="videos/aspps_clip.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
-    </div>
-  </div></center>
+
       <p style="text-align:center; margin-top:1.5rem;">
         <a class="btn btn--primary" href="documentary.html">Watch the full documentary</a>
       </p>
-      <!-- <div class="cta-panel">
-        <div>
-          <p>This section is ready for a video embed or a featured school documentary block.</p>
-        </div>
-      </div> -->
     </section>
 
     <section class="section gallery-showcase" id="gallery">
@@ -367,54 +385,6 @@
         </div>
       </div>
     </section>
-
-    <!-- <section class="section" id="infrastructure">
-      <div class="section__heading">
-        <span class="section__eyebrow">Facilities</span>
-        <h2>Infrastructure</h2>
-        <p>Describe the school building, classrooms, grounds, and overall campus infrastructure here.</p>
-      </div>
-    </section>
-
-    <section class="section" id="laboratories">
-      <div class="section__heading">
-        <span class="section__eyebrow">Facilities</span>
-        <h2>Laboratories</h2>
-        <p>Use this section for science labs, computer labs, and any practical learning spaces.</p>
-      </div>
-    </section> -->
-
-    <!-- <section class="section" id="library">
-      <div class="section__heading">
-        <span class="section__eyebrow">Facilities</span>
-        <h2>Library</h2>
-        <p>Add reading resources, book collections, and study environment details here.</p>
-      </div>
-    </section>
-
-    <section class="section" id="features">
-      <div class="section__heading">
-        <span class="section__eyebrow">Facilities</span>
-        <h2>Features</h2>
-        <p>Highlight the unique features of the school, such as transport, activities, or digital learning support.</p>
-      </div>
-    </section> -->
-
-    <!-- <section class="section" id="staff-details">
-      <div class="section__heading">
-        <span class="section__eyebrow">Administration</span>
-        <h2>Staff Details</h2>
-        <p>Add the staff list here when you are ready. The section is now linked from the navbar so it feels complete.</p>
-      </div>
-    </section> -->
-
-    <!-- <section class="section" id="tc">
-      <div class="section__heading">
-        <span class="section__eyebrow">Quick Links</span>
-        <h2>Uploaded TC</h2>
-        <p>This can host uploaded transfer certificates or related documents in the future.</p>
-      </div>
-    </section> -->
 
     <div id="admission"></div>
     <section class="section section--cta" id="contact">

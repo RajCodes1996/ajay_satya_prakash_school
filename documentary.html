@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>School Documentary Video | Ajay Satya Prakash Public School</title>
-  <meta name="description" content="Watch the official documentary of Ajay Satya Prakash Public School, a CBSE school in Panagar, Jabalpur, showing campus facilities, academics and activities.">
+  <meta name="description" content="Watch the official documentary of Ajay Satya Prakash Public School, a CBSE school in Panagar, Jabalpur, showing campus facilities, academics and activities.[cite: 3]">
   <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#1e3a8a">
   <link rel="canonical" href="https://www.ajaysatyaprakashschool.in/documentary.html">
@@ -17,18 +17,17 @@
   <meta property="og:locale" content="en_IN">
   <meta property="og:url" content="https://www.ajaysatyaprakashschool.in/documentary.html">
   <meta property="og:title" content="Ajay Satya Prakash Public School Documentary">
-  <meta property="og:description" content="Watch the official documentary of Ajay Satya Prakash Public School, Panagar, Jabalpur.">
+  <meta property="og:description" content="Watch the official documentary of Ajay Satya Prakash Public School, Panagar, Jabalpur.[cite: 3]">
   <meta property="og:image" content="https://www.ajaysatyaprakashschool.in/images/as.jpg">
   <meta property="og:image:alt" content="Ajay Satya Prakash Public School documentary thumbnail">
   <meta property="og:video" content="https://www.ajaysatyaprakashschool.in/videos/aspps_clip.mp4">
   <meta property="og:video:type" content="video/mp4">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ajay Satya Prakash Public School Documentary">
-  <meta name="twitter:description" content="Official documentary of Ajay Satya Prakash Public School, Panagar, Jabalpur.">
+  <meta name="twitter:description" content="Official documentary of Ajay Satya Prakash Public School, Panagar, Jabalpur.[cite: 3]">
   <meta name="twitter:image" content="https://www.ajaysatyaprakashschool.in/images/as.jpg">
 
   <!-- Structured data: page + video + breadcrumb -->
-  <!-- IMPORTANT: set "uploadDate" to the real date the video was first published and "duration" to the real video length (ISO 8601, e.g. PT2M15S). -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,7 +48,7 @@
         "@type": "VideoObject",
         "@id": "https://www.ajaysatyaprakashschool.in/documentary.html#video",
         "name": "Ajay Satya Prakash Public School Documentary",
-        "description": "Official documentary of Ajay Satya Prakash Public School, a CBSE school in Panagar, Jabalpur, featuring campus facilities, academics and activities.",
+        "description": "Official documentary of Ajay Satya Prakash Public School, a CBSE school in Panagar, Jabalpur, featuring campus facilities, academics and activities.[cite: 3]",
         "thumbnailUrl": ["https://www.ajaysatyaprakashschool.in/images/as.jpg"],
         "uploadDate": "2026-10-12T08:00:00+05:30",
         "duration": "PT1M30S",
@@ -81,6 +80,35 @@
   <style>
     .breadcrumb { font-size: 0.9rem; margin-bottom: 1rem; color: var(--muted); text-align: center; }
     .breadcrumb a { color: inherit; text-decoration: underline; }
+    
+    /* Responsive Video Section Custom Styles */
+    .video-container-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .video-responsive {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* Maintains a clean 16:9 widescreen ratio */
+      height: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      background: #000;
+    }
+
+    .video-responsive video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
     /* Google Translate CSS Overrides & Custom Switcher */
     body { top: 0 !important; }
     .skiptranslate iframe { display: none !important; }
@@ -240,30 +268,28 @@
         <p>A look at our campus, classrooms, facilities and student activities at Panagar, Jabalpur.</p>
       </div>
 
-      <center><div class="video-stage">
-        <div class="video-perspective-wrapper">
-          <div class="video-3d-card">
-            <video
-              class="documentary-video"
-              controls
-              playsinline
-              preload="metadata"
-              aria-label="Ajay Satya Prakash Public School documentary video"
-              poster="images/as.jpg">
-              <source src="videos/aspps_clip.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <div class="video-3d-overlay"></div>
-          </div>
+      <!-- Re-designed Responsive Video Container -->
+      <div class="video-container-wrapper">
+        <div class="video-responsive">
+          <video
+            class="documentary-video"
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Ajay Satya Prakash Public School documentary video"
+            poster="images/as.jpg">
+            <source src="videos/aspps_clip.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
-      </div></center>
+      </div>
 
       <div class="section__heading" style="margin-top:3rem;">
         <h2>About this documentary</h2>
         <p>
           This documentary gives parents and students a look at life at Ajay Satya Prakash Public School,
-          a CBSE school in Panagar, Jabalpur, Madhya Pradesh. It shows our campus, facilities, academics
-          and student activities. To learn more, read <a href="campus-info.html">about our school and campus</a>,
+          a CBSE school in Panagar, Jabalpur, Madhya Pradesh[cite: 3]. It shows our campus, facilities, academics
+          and student activities[cite: 3]. To learn more, read <a href="campus-info.html">about our school and campus</a>,
           meet our <a href="principal-message.html">Principal</a>, or send us an admission enquiry.
         </p>
       </div>
@@ -278,69 +304,4 @@
 
   <footer class="site-footer">
     <div class="footer-map" style="width: 100%; border-radius: 16px; overflow: hidden; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3072.2384226062413!2d79.9791909844836!3d23.2696051597517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981a5ce4835913f%3A0x2c936987c5fdc0fb!2sAjay%20Satya%20Prakash%20Senior%20Secondary%20School%20%7C%20Best%20School%20%7C%20Best%20School%20For%20Kids%20%7C%20Best%20School%20In%20Panagar!5e0!3m2!1sen!2sin!4v1785653124131!5m2!1sen!2sin" width="100%" height="200" style="border:0; display: block;" title="Map: Ajay Satya Prakash Public School, Panagar, Jabalpur" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    </div>
-    <div>
-      <strong>Ajay Satya Prakash Public School</strong>
-      <address style="font-style:normal">
-        <p>Panagar, Keolari, Jabalpur, Madhya Pradesh 483220</p>
-        <p>
-          <a href="tel:+917612350211" style="color:inherit">+91-761-2350211</a> |
-          <a href="mailto:aspps011@gmail.com" style="color:inherit">aspps011@gmail.com</a>
-        </p>
-      </address>
-      <nav aria-label="Footer links">
-        <p>
-          <a href="/" style="color:inherit">Home</a> |
-          <a href="campus-info.html" style="color:inherit">About School</a> |
-          <a href="director-message.html" style="color:inherit">Director's Message</a> |
-          <a href="principal-message.html" style="color:inherit">Principal's Message</a> |
-          <a href="chairman-message.html" style="color:inherit">Chairman's Message</a>
-        </p>
-      </nav>
-    </div>
-    <p>&copy; 2026 Ajay Satya Prakash Public School Jabalpur, Madhya Pradesh. All rights reserved.</p>
-  </footer>
-
-  <script>
-    const toggleButton = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('nav-links');
-
-    toggleButton.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('nav__links--open');
-      toggleButton.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    navLinks.querySelectorAll('button.nav-link').forEach((button) => {
-      button.addEventListener('click', () => {
-        const item = button.parentElement;
-        const open = item.classList.toggle('nav-item--open');
-        navLinks.querySelectorAll('.nav-item').forEach((other) => {
-          if (other !== item) other.classList.remove('nav-item--open');
-        });
-        item.classList.toggle('nav-item--open', open);
-      });
-    });
-  </script>
-
-  <!-- Google Translate AI (Multilingual Support) -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,hi,mr,gu,ta,te',
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-
-    function translatePage(lang) {
-      var select = document.querySelector('.goog-te-combo');
-      if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event('change'));
-      }
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
-</html>
+      <iframe src="
