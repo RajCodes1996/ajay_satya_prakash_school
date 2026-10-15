@@ -25,7 +25,8 @@
   };
   const BOT = {
     storageKey: "aspps_chat_v2",
-    answersUrl: "chatbot-data/answers.json",  // answers YOU write (the bot reads this file)
+    answersUrl: "chatbot-data/answers.php",   // answers from your CSV "your_answer" column + answers.json
+    answersFallbackUrl: "chatbot-data/answers.json", // used only if PHP is not available
     logUrl: "chatbot-data/log.php",           // saves unanswered questions into unanswered.csv ("" = off)
     maxLogsPerSession: 5,    // anti-spam: max questions one visitor can log per visit
     onUnanswered: function (q) {} // optional extra hook (analytics etc.)
@@ -336,17 +337,19 @@
   const mount = typeof document !== "undefined" && document.getElementById("aspps-ai");
   if (!mount) return;
 
+  let lastLoad = 0;
   async function loadRemote() {
-    // 1) your answers file
-    if (BOT.answersUrl) {
+    lastLoad = Date.now();
+    // 1) your answers (answers.php first, plain answers.json as fallback)
+    for (const url of [BOT.answersUrl, BOT.answersFallbackUrl]) {
+      if (!url) continue;
       try {
-        const r = await fetch(BOT.answersUrl, { cache: "no-cache" });   // re-checks the file on every visit
-        if (r.ok) {
-          const d = await r.json();
-          const items = Array.isArray(d) ? d : d.items;
-          if (Array.isArray(items)) setRemote(items.filter(x => x && x.active !== false));
-        }
-      } catch (e) { /* missing file or bad JSON: built-in answers still work */ }
+        const r = await fetch(url, { cache: "no-store" });             // always fresh: new answers are live at once
+        if (!r.ok) continue;
+        const d = await r.json();
+        const items = Array.isArray(d) ? d : d.items;
+        if (Array.isArray(items)) { setRemote(items.filter(x => x && x.active !== false)); break; }
+      } catch (e) { /* try next source */ }
     }
     // 2) is the logger available on this server? (needs PHP; stays off otherwise)
     if (BOT.logUrl) {
@@ -357,6 +360,8 @@
     }
   }
   loadRemote();
+  // re-read your answers before replying (at most once every 10 s), so new answers work without reloading the page
+  const refreshAnswers = (maxAgeMs) => (Date.now() - lastLoad < maxAgeMs ? Promise.resolve() : loadRemote());
 
   const DEFAULT_CHIPS = ["Admission", "Fees", "School Info", "Campus", "Contact", "Gallery", "Principal"];
 
@@ -420,13 +425,15 @@
     typing.innerHTML = "<span></span><span></span><span></span>";
     body.appendChild(typing); body.scrollTop = body.scrollHeight;
 
-    const res = respond(text);
-    setTimeout(() => {
-      typing.remove();
-      addMessage(res.html, "bot");
-      setChips(res.next && res.next.length ? res.next : DEFAULT_CHIPS);
-      busy = false;
-    }, 450 + Math.min(res.html.length, 600));
+    refreshAnswers(10000).catch(() => {}).then(() => {
+      const res = respond(text);
+      setTimeout(() => {
+        typing.remove();
+        addMessage(res.html, "bot");
+        setChips(res.next && res.next.length ? res.next : DEFAULT_CHIPS);
+        busy = false;
+      }, 450 + Math.min(res.html.length, 600));
+    });
   }
 
   sendBtn.addEventListener("click", () => { const t = input.value; input.value = ""; send(t); });
