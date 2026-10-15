@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "active": false,
+      "q": "EXAMPLE: Is there a school bus?",
+      "k": "bus, transport, van",
+      "a": "Replace this text with your real answer.\nYou can use **bold**, new lines and links like https://example.com"
+    }
+  ]
+}

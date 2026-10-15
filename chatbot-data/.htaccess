@@ -12,3 +12,14 @@ RewriteRule ^([^/]+)$ $1.html [L]
 # 3. Externally redirect browser if someone explicitly types .html
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^/]+)\.html\ HTTP/
 RewriteRule ^([^/]+)\.html$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Visitors must NOT be able to download the questions file.
+<Files "unanswered.csv">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</Files>
